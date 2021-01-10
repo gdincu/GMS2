@@ -51,32 +51,46 @@ function saveUser() {
     $errorArray = array();
     $error = false;
     $errorMessage = "";
-
+	
+	// Validates the username
     $errorMessage = validate_username($username);
+	
     if ($errorMessage != "") {
         $errorArray['username'] = $errorMessage;
+		echo $errorMessage;
         $error = true;
     }
 
+	// Validates the firstname
     $errorMessage = validate_firstname($firstname);
+	
     if ($errorMessage != "") {
         $errorArray['firstname'] = $errorMessage;
+		echo $errorMessage;
         $error = true;
     }
+	
+	// Validates the lastname
     $errorMessage = validate_lastname($lastname);
+	
     if ($errorMessage != "") {
         $errorArray['lastname'] = $errorMessage;
+		echo $errorMessage;
         $error = true;
     }
+	
+	// Validates the password
     $errorMessage = validate_password($_POST["password"]);
+	
     if ($errorMessage != "") {
         $errorArray['password'] = $errorMessage;
+		echo $errorMessage;
         $error = true;
     }
 
     $_SESSION["error"] = $errorArray;
     if ($error) {
-        //echo 'Not saved to database. Please check for errors.</br>';
+		echo "<script> alertify.error('Not saved to database. Please check for errors.'); </script>";
         return false;
     }
 
@@ -120,27 +134,9 @@ function saveUser() {
 if(isset($_POST["savedata"])) {
     $success = saveUser();
     
-    if($success) {
-        //echo 'User saved to database.<br>';
-        //sleep(3);
-        $userFinal = "'".htmlentities($_POST["username"],ENT_HTML5,'UTF-8',TRUE)."'";
-        $passwordFinal =  "'".hash("sha256", htmlentities($_POST["password"],ENT_HTML5,'UTF-8',TRUE))."'";
-        $sql = "SELECT id, username,password FROM user WHERE username=$userFinal";
-        $connection = mysqli_connect("localhost","root","","playversity");
-        $result = $connection->query($sql);
-        
-        if($row = $result->fetch_assoc()) {
-            $_SESSION["user"] = $row["username"];
-            $_SESSION["password"] = $row["password"];
-            $_SESSION["userid"] = $row["id"];
-
-            header("Location: index.php?page=user");
-        }
-    } else {
-        //die;
-        //header("Location: index.php");
-    }
-
-    
+    if($success)
+		echo "<script> alertify.success('User saved to database.'); </script>";
+    else
+		echo "<script> alertify.error('Try again!'); </script>";  
 }
 ?>
