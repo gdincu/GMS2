@@ -1,0 +1,49 @@
+  <!-- Portfolio Section -->
+  <section class="page-section portfolio" id="portfolio">
+    <div class="container">
+      <br>
+
+      <!-- Portfolio Grid Items -->
+      <div class="col">
+
+		<div class="row">	
+        <div class="col-md-2 col-lg-2">
+        <!-- Portfolio Item 1 -->
+		<button type="submit" name="submit" class="btn btn-primary" onclick="location.href='http://localhost/phpmyadmin/'">DB Admin Panel</button>
+		</div>
+		<div class="col-md-10 col-lg-10">
+		Click here to access the Admin panel for the MariaDB dabatase.
+		</div>
+		</div>
+		
+		<br>
+		
+		<div class="row">	
+        <div class="col-md-2 col-lg-2">
+        <!-- Portfolio Item 2 -->
+		<form action="install.php" method="get">
+		<input type="submit" value="Create database" class="btn btn-success">
+		</form>	
+		</div>
+		<div class="col-md-10 col-lg-10">
+		Click here to create a database and populate with template data.
+		</div>
+		</div>
+		
+		<br>
+		
+		<div class="row">	
+        <div class="col-md-2 col-lg-2">
+        <!-- Portfolio Item 3 -->
+		<form action="drop.php" method="get">
+		<input type="submit" value="Drop database" class="btn btn-danger">
+		</form>
+		</div>
+		<div class="col-md-10 col-lg-10">
+		Click here to delete the database. <b>Please be aware that all current data would also be removed</b>.
+		</div>
+		</div>
+		
+	</div>
+</div>
+</section>

@@ -1,0 +1,12 @@
+
+<table class="container table">
+    
+    <thead>
+        <th><h2>Playlists for <?php echo getLoggedInUser(); ?><h2></th>
+    </thead>
+    
+    <tbody>
+        <?php $this->returnPlaylistBasedOnUser() ?>
+    </tbody>
+
+</table>

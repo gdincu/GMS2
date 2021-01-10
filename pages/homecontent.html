@@ -1,0 +1,59 @@
+<!--User SignUp Form-->
+<!--Location: HomePage-->
+<!--htmlspecialchars() function converts special characters to HTML entities-->
+<div class="col-md-4 col-md-offset-4">
+
+<form method="post"> 
+  <div class="form-group">
+    <label for="username">Username</label>
+	 <!-- Checks if the user is already logged in  -->
+                        <input  type="<?php echo isLoggedIn() ? 'hidden' : 'text'?>" 
+                                class="form-control form-control-md" 
+                                id="username" 
+                                name="username"  
+                                aria-label="Small" 
+                                aria-describedby="inputGroup-sizing-sm"                                 
+                                placeholder="Enter Username"
+                                style="background-color: #F7F5E6;
+                                    <?php
+                                            if (isset($_GET['error']))
+                                                echo ' border: 2px solid red;';
+                                        ?>"
+                        />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <!-- Checks if the user is already logged in  -->
+                        <input  type="<?php echo isLoggedIn() ? 'hidden' : 'password'?>"
+                                class="form-control form-control-md" 
+                                id="password" 
+                                name="password" 
+                                placeholder="Enter Password" 
+                                style="background-color: #E8E8E8;
+                                    <?php 
+                                            if (isset($_GET['error']))
+                                            echo ' border: 2px solid red;';
+                                    ?>"
+                        /> 
+  </div>
+  
+  <button type="submit" class="btn btn-primary" name = "access">
+                            <?php echo isLoggedIn() ? 'Log Out' : 'Log In'?>
+  </button>
+</form>
+
+
+
+
+                       
+                    
+
+                    
+                        
+                    
+
+                    
+                   
+
+
+</div>

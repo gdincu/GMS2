@@ -1,0 +1,40 @@
+<!--Song List based on playlist-->
+<!--Location: SongPage-->
+
+<!-- Returns the playlist name rather than displaying its id -->
+<div class="container">
+<h2><?php
+    if(isset($_GET['playlistid'])) {
+
+    $connection = mysqli_connect("localhost","root","","playversity");
+    $tempId = (int)$_GET['playlistid'];
+    $sqlTemp = "SELECT name FROM playlist WHERE id = $tempId";
+    $resultCount = $connection->query($sqlTemp);
+    $rowCount = $resultCount->fetch_assoc();
+    print "Playlist: " . $rowCount["name"];
+}
+else
+print "Song list:";
+    ?>
+</h2>
+<br>
+
+<!-- Order by -->
+<label for="orderby" <?php if(isset($_GET["shared"])) echo ' hidden' ?>>Order by:</label>
+<select name="orderby" id="orderby" onchange="location = this.value;" <?php if(isset($_GET["shared"])) echo ' hidden' ?>>
+    <option <?php if(isset($_GET["orderby"]) && $_GET["orderby"] == 'artist') echo ' selected '; ?> value=" <?php print isset($_GET["allsongs"]) ? "index.php?page=song&allsongs" : "index.php?page=song&playlistid=" . $_GET["playlistid"]; ?> "></option>
+    <option <?php if(isset($_GET["orderby"]) && $_GET["orderby"] == 'artist') echo ' selected '; ?> value=" <?php print isset($_GET["allsongs"]) ? "index.php?page=song&allsongs&orderby=artist" : "index.php?page=song&playlistid=" . $_GET["playlistid"] ."&orderby=artist" ; ?> ">Artist</option>
+    <option <?php if(isset($_GET["orderby"]) && $_GET["orderby"] == 'name') echo ' selected '; ?> value=" <?php print isset($_GET["allsongs"]) ? "index.php?page=song&allsongs&orderby=name" : "index.php?page=song&playlistid=" . $_GET["playlistid"] ."&orderby=name" ; ?> ">Name</option>
+</select>
+
+<br>
+<table class="table">
+<tr>
+<th>Artist</th>
+<th>Name</th>
+<th>Length</th>
+<?php print isset($_GET['playlistid']) ? "<th></th>" : "" ?> <!-- Used for the delete button -->
+<?php print isset($_GET['allsongs']) ? "<th></th><th></th>" : "" ?> <!-- Used for the add button and the playlist list -->
+</tr>
+
+</div>

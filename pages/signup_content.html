@@ -1,0 +1,77 @@
+ <div class="container col-lg-5 form-group form-group-lg mb-3">
+    <form   method="post"
+            enctype="multipart/form-data"
+            action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"
+            name="savedata"
+            target="_self"
+            id="savedata">
+
+
+        <div class="form-group row">
+                <div class="col-sm-4" >
+                    <input  type="text"
+                            id="firstname"
+                            name="firstname"
+                            class="<?php getError('firstname') ?> form-control form-control-sm"
+                            aria-label="Small"
+                            aria-describedby="inputGroup-sizing-sm"
+                            placeholder="<?php echo 'First Name ' . $this->firstname;?>"
+                            value="<?php getPost('firstname') ?>" required>
+                </div>
+            <div><?php getErrorMessage('firstname') ?></div></br>
+        </div>
+        <div class="form-group row">
+                <div class="col-sm-4">
+                    <input  type="text"
+                            id="lastname"
+                            name="lastname"
+                            class="<?php getError('lastname') ?> form-control form-control-sm"
+                            aria-label="Small"
+                            aria-describedby="inputGroup-sizing-sm"
+                            placeholder="<?php echo 'Last Name ' . $this->lastname;?>"
+                            value="<?php getPost('lastname') ?>" required>
+                </div>
+            <div><?php getErrorMessage('lastname') ?></div></br>
+        </div>
+        <div class="form-group row">
+                <div class="col-sm-4">
+                    <input  type="text"
+                            id="username"
+                            name="username"
+                            class="<?php getError('username') ?> form-control form-control-sm"
+                            aria-label="Small"
+                            aria-describedby="inputGroup-sizing-sm"
+                            placeholder="<?php echo 'Username ' . $this->username;?>"
+                            value="<?php getPost('username') ?>" required>
+                </div>
+            <div><?php getErrorMessage('username') ?></div></br>
+        </div>
+
+        <div class="form-group row">
+                <div class="col-sm-4">
+                    <input  type="password"
+                            id="password"
+                            name="password"
+                            class="<?php getError('password') ?> form-control form-control-sm"
+                            aria-label="Small"
+                            aria-describedby="inputGroup-sizing-sm"
+                            placeholder="<?php echo 'Password ' . $this->password;?>"
+                            value="<?php getPost('password') ?>" required>
+                </div>
+            <div><?php getErrorMessage('password') ?></div></br>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <button type="submit"
+                        id="savedata"
+                        name="savedata"
+                        class="btn btn-secondary btn-sm border-0"
+                        value="savedata"
+                        style="background-color: #52658F;">Sign Up
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,116 @@
+<!--User Data-->
+<!--Location: UserPage-->
+<div class="container">
+    
+    <fieldset class="container">
+
+        <!--ROW TITLE-->
+        <div class="row">
+            <div class="col">
+                <h2><?php echo getLoggedInUser(); ?></h2>
+            </div>   
+        </div>
+        <br>
+        
+        <!--ROW IMAGE & changes form-->
+        <div class="row">
+        
+            <div class="col">
+
+            <!-- User image -->
+                <div class="container row media-body" id="userPageImage">
+                <img   src='<?php echo $this->userImage; ?>' 
+                        alt="No Photo" width="200px" 
+                        style="width: 300px; height: 200px; border:1px solid grey" 
+                    />
+            </div>
+
+            <form   class="container form-row" 
+            action="index.php?page=user" 
+            method="post" 
+            enctype="multipart/form-data">
+           
+
+            <!--ROW CHOSE PROFILE PHOTO-->
+            <div class="row input-group input-group-sm mb-3">
+                <label for="imageHelp" class="text-muted custom-file-upload"><small>Click here to choose your profile photo.</small></label>
+                <input type="file" name="image" id="imageHelp" class="btn btn-secondary btn-sm" />  
+            </div>
+
+            </div>
+        
+
+            <div class="col" id="userPageFormData">
+
+                    <!--ROW FIRST NAME INPUT-->
+                        <div class="form-row">
+                            <div class="col-lg-3">First Name:</div>
+                            <div class="col-lg-9"><input  type="text"
+                                    id="firstname" 
+                                    name="firstname"
+                                    class="form-control border-0" 
+                                    aria-label="Small" 
+                                    aria-describedby="inputGroup-sizing-sm"                                
+                                    value='<?php echo $this->userFirstName; ?>' 
+                                    style="background-color: #E8E8E8;"
+                                />
+                        </div>
+                        </div>
+
+                        <br>
+                    
+                    <!--LAST NAME INPUT-->
+                    <div class="form-row">
+                        <div class="col-lg-3">Last Name:</div>
+                        <div class="col-lg-9"><input  type="text"
+                                id="lastname" 
+                                name="lastname"
+                                class="form-control border-0" 
+                                aria-label="Small" 
+                                aria-describedby="inputGroup-sizing-sm"                                
+                                value='<?php echo $this->userLastName; ?>' 
+                                style="background-color: #E8E8E8;"
+                            />
+                    </div>
+                    
+                    <br><br><br>
+
+                    <!--SUBMIT BUTTON-->
+                    <div class="form-row">
+                        <button type="submit"
+                        id="saveChanges" 
+                        name="saveChanges" 
+                        class="btn btn-success btn-m m-1 rounded"
+                        value="saveChanges" 
+                        style="background-color: #52658F;">Save changes
+                </button>
+            </form>
+                    </div>  
+                    
+                            </div>    
+                        </div>
+                
+            </div>
+
+            <br>
+        <!--ROW FORM START-->
+        <div class="form-row"> 
+                        
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <!-- Link to the playlists page -->
+                    <a class="col btn btn-success btn-sm m-1 rounded" href="index.php?page=userplaylists" >My Playlists</a>
+                    <a class="col btn btn-warning btn-sm m-1 rounded" href="index.php?page=sharedplaylists" >Shared Playlists</a>
+                    <!-- Link to the password reset page -->
+                    <a class="col btn btn-dark btn-sm m-1 rounded" href="index.php?page=resetpass" >Reset Password</a>
+                    <a class="col btn btn-danger btn-sm m-1 rounded" href="index.php?page=deleteaccount" >Delete Account</a>
+                </div>
+            </div>
+
+            <div class="container" style=<?php echo $this->hasError() ? "'color:red'" : "'color:green'" ?>'><?php echo $this->getLastSaveStatus()?></div></br>
+
+        </div>
+
+    </fieldset>
+
+</div>
