@@ -28,6 +28,9 @@ class UsersListPage extends BasePage {
             echo "<tr>";
 			$tempId = $row["id"];
             echo '<td>'.$row["username"].'</td>'; 
+			
+			//Edit button
+			echo '<td><a class="btn btn-sm btn-warning rounded" href="index.php?page=edituser&id='.(int)$row['id'].'" >Edit</a></td>';
 
             //Delete button
             echo '<form method="post" action="">';

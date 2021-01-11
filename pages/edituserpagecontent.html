@@ -7,7 +7,7 @@
         <!--ROW TITLE-->
         <div class="row">
             <div class="col">
-                <h2><?php echo getLoggedInUser(); ?></h2>
+                <h2>'<?php echo $this->userUserName; ?>'</h2>
             </div>   
         </div>
         <br>
@@ -83,8 +83,8 @@
                         class="btn btn-success btn-m m-1 rounded"
                         value="saveChanges" 
                         style="background-color: #52658F;">Save changes
-                </button>
-            </form>
+						</button>
+				</form>
                     </div>  
                     
                             </div>    
@@ -98,31 +98,11 @@
                         
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <!-- Link to the playlists page -->
-                    <a class="col btn btn-success btn-sm m-1 rounded" href="index.php?page=userslist" >Garage</a>
+                    
                     <!-- Link to the password reset page -->
                     <a class="col btn btn-dark btn-sm m-1 rounded" href="index.php?page=resetpass" >Reset Password</a>
 					<!-- Delete the current account -->
                     <a class="col btn btn-danger btn-sm m-1 rounded" href="index.php?page=deleteaccount" >Delete Current Account</a>
-					
-					<!-- Accounts -->
-					<!-- Only visible to admin -->
-					<div class="btn-group" role="group" <?php echo getLoggedInUser() === 'admin' ?  '' : 'hidden'?>>
-					<button id="btnGroupDrop1" type="button" class="col btn btn-info btn-sm m-1 rounded dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Accounts
-					</button>
-					<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-					<a class="dropdown-item" href="index.php?page=signup">Setup New Account</a>
-					<a class="dropdown-item" href="index.php?page=userslist">Current Accounts</a>
-					</div>
-					</div>
-					
-					<!-- Database Admin -->
-					<!-- Only visible to admin -->
-					<div <?php echo getLoggedInUser() === 'admin' ?  '' : 'hidden'?>>
-					<a class="col btn btn-warning btn-sm m-1 rounded" href="http://localhost/phpmyadmin/" >DB Panel</a>
-					</div>
-					
 					
                 </div>
             </div>
