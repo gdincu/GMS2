@@ -3,7 +3,7 @@ ob_start();
 require_once (__DIR__ . '/../templates/BasePage.php');
 require_once "helpers/session.php";
 
-class UserPlaylistsPage extends BasePage {
+class UsersPage extends BasePage {
 
     private $sql;
 
@@ -14,7 +14,7 @@ class UserPlaylistsPage extends BasePage {
     }
 
     function content() {
-       include "userplaylistspagecontent.html";
+       include "userspagecontent.html";
     }
 
     function returnPlaylistBasedOnUser() {
